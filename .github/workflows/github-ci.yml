@@ -1,0 +1,21 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: ["master"]
+  pull_request:
+    branches: ["master"]
+
+jobs:
+  build:
+    runs-on: self-hosted
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build 🎈
+        run: |
+          docker rm bepcomoi -f
+          docker rmi toaingo00/bepcomoi -f
+          docker build -t toaingo00/bepcomoi .
+          docker run --name bepcomoi -dp 0.0.0.0:4003:4003 toaingo00/bepcomoi

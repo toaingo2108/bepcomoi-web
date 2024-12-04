@@ -13,7 +13,7 @@ interface MenuProps {
 }
 const Menu = ({ menuItems }: MenuProps) => {
   return (
-    <div className="flex items-center justify-center flex-1 py-4">
+    <div className="flex items-center justify-center flex-1">
       {menuItems.map((item) => (
         <HoverCard openDelay={0} closeDelay={0} key={item.name}>
           <HoverCardTrigger asChild>

@@ -38,7 +38,7 @@ const BreadcrumbContainer = ({ data }: BreadcrumbContainerProps) => {
   return (
     <Breadcrumb
       className={cn(
-        "lg:sticky relative lg:top-[120px] pb-4 bg-white z-[1] transition-shadow",
+        "lg:sticky relative lg:top-[80px] pb-4 bg-white z-[1] transition-shadow",
         showShadow && "shadow-2xl"
       )}
     >

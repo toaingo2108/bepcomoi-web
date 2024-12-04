@@ -273,7 +273,7 @@ const PayPage = () => {
                                 value={field.value}
                                 className="flex flex-col space-y-1"
                               >
-                                <FormItem className="flex items-center space-x-3 space-y-0">
+                                {/* <FormItem className="flex items-center space-x-3 space-y-0">
                                   <FormControl>
                                     <div className="flex flex-col space-y-4 w-full">
                                       <div className="flex items-center space-x-2">
@@ -301,7 +301,7 @@ const PayPage = () => {
                                       )}
                                     </div>
                                   </FormControl>
-                                </FormItem>
+                                </FormItem> */}
                                 <FormItem className="flex items-center space-x-3 space-y-0">
                                   <FormControl>
                                     <div className="flex flex-col space-y-4 w-full">

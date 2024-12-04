@@ -51,9 +51,11 @@ const ProductItem = ({ product }: ProductItemProps) => {
         </Hint>
         <div className="flex flex-col gap-2 h-fit">
           <div className="flex gap-2 justify-center">
-            <span className="text-primary/60 font-bold text-xl line-through">
-              {formatPrice(product.price)}
-            </span>
+            {product.salePrice < product.price && (
+              <span className="text-primary/60 font-bold text-xl line-through">
+                {formatPrice(product.price)}
+              </span>
+            )}
             <span className="text-primary font-bold text-xl">{formatPrice(product.salePrice)}</span>
           </div>
           <Button

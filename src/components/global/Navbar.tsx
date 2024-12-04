@@ -29,10 +29,10 @@ const Navbar = ({ categories }: NavbarProps) => {
   }, [categories]);
 
   return (
-    <div className="bg-white py-4 lg:sticky relative top-0 z-10 h-[120px] flex">
+    <div className="bg-white py-4 lg:sticky relative top-0 z-10 flex">
       <Wrapper className="lg:grid lg:grid-cols-10 flex justify-between w-full">
         <Link href="/" className="flex items-center">
-          <div className="relative w-20 h-20">
+          <div className="relative w-12 h-12">
             <Image src="/logo.png" alt="logo" fill className="object-contain" priority />
           </div>
         </Link>

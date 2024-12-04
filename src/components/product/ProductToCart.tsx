@@ -34,7 +34,7 @@ const ProductToCart = ({ product }: ProductToCartProps) => {
     startTransition(async () => {
       await sleep(1000);
       addToCart(product, quantity);
-      setQuantity(1);
+      setQuantity(0);
     });
   };
 
@@ -48,6 +48,7 @@ const ProductToCart = ({ product }: ProductToCartProps) => {
           value={quantity}
           type="number"
           className="rounded-none w-11 text-center p-2 !appearance-none"
+          onChange={(e) => setQuantity(parseInt(e.target.value))}
         />
         <Button onClick={handlePlus} variant="outline" className="rounded-none" size="icon">
           <PlusIcon className="w-3 h-3 text-muted-foreground" />

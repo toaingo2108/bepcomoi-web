@@ -21,7 +21,7 @@ const useCart = create(
           const index = state.items.findIndex((i) => i.product.slug === item.slug);
           if (index !== -1) {
             state.items[index].quantity += quantity;
-            return { items: state.items };
+            return { items: [...state.items] };
           }
 
           return { items: [...state.items, { product: item, quantity: quantity }] };
@@ -35,7 +35,7 @@ const useCart = create(
           }
 
           state.items.splice(index, 1);
-          return { items: state.items };
+          return { items: [...state.items] };
         });
       },
       clearCart: () => {

@@ -17,6 +17,18 @@ interface ProductDetailPageProps {
 }
 const ProductDetailPage = async ({ params }: ProductDetailPageProps) => {
   const product = await getDetailProduct(params.slug);
+
+  if(!product) {
+    return (
+      <Wrapper>
+        <div className="flex flex-col items-center justify-center gap-4">
+          <Image src="/logo-mammy.png" width={200} height={200} alt="404" />
+          <p className="text-primary text-lg font-bold">Không tìm thấy sản phẩm</p>
+        </div>
+      </Wrapper>
+    );
+  }
+
   return (
     <>
       <BreadcrumbContainer

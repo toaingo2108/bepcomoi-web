@@ -33,7 +33,7 @@ const Navbar = ({ categories }: NavbarProps) => {
       <Wrapper className="lg:grid lg:grid-cols-10 flex justify-between w-full">
         <Link href="/" className="flex items-center">
           <div className="relative w-20 h-20">
-            <Image src="/logo-mammy.png" alt="logo" fill className="object-contain" priority />
+            <Image src="/logo.png" alt="logo" fill className="object-contain" priority />
           </div>
         </Link>
         <div className="col-span-8 lg:flex items-center hidden">

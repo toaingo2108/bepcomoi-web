@@ -1,6 +1,6 @@
 export const menuItems: MenuItemType[] = [
   { name: "Trang chủ", href: "/" },
-  { name: "Về Mămmy", href: "/niem-tin-cua-mammy" },
+  { name: "Về Bepcomoi", href: "/about" },
   {
     name: "Cửa hàng",
     href: "/cua-hang",
@@ -24,8 +24,8 @@ export const menuItems: MenuItemType[] = [
     ],
   },
   {
-    name: "Phươn pháp ăn dặm bổ não",
-    href: "/phuong-phap-an-dam-bo-nao",
+    name: "Bài viết",
+    href: "/blogs",
     // subItems: [
     //   {
     //     name: "Phương pháp ăn dặm bổ não",
@@ -41,7 +41,7 @@ export const menuItems: MenuItemType[] = [
     //   },
     // ],
   },
-  { name: "Thực đơn ăn dặm bổ não", href: "/chuyen-muc/thuc-don-an-dam" },
+  // { name: "Thực đơn ăn dặm bổ não", href: "/chuyen-muc/thuc-don-an-dam" },
   {
     name: "Help",
     href: "/help",

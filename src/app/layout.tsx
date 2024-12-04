@@ -14,14 +14,14 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: {
-    default: "Bếp có mồi ngồi đừng ép",
-    template: "%s | Bepcomoingoidungep",
+    default: "Bếp có mồi - Tui có mực khô",
+    template: "%s | Bepcomoi",
   },
-  description: "Bếp có mồi ngồi đừng ép",
+  description: "Bếp có mồi - Tui có mực khô",
   icons: [
     {
-      href: "/logo-mammy.png",
-      url: "/logo-mammy.png",
+      href: "/logo.png",
+      url: "/logo.png",
       sizes: "32x32",
     },
   ],
@@ -44,7 +44,7 @@ export default async function RootLayout({
     <html lang="en">
       <body className={cn(inter.className, "relative")}>
         <NextTopLoader
-          color="#78be20"
+          color="#9BB62D"
           initialPosition={0.08}
           crawlSpeed={200}
           height={3}
@@ -52,7 +52,7 @@ export default async function RootLayout({
           showSpinner={false}
           easing="ease"
           speed={200}
-          shadow="0 0 10px #78be20,0 0 5px #78be20"
+          shadow="0 0 10px #9BB62D,0 0 5px #9BB62D"
           template='<div class="bar" role="bar"><div class="peg"></div></div> 
   <div class="spinner" role="spinner"><div class="spinner-icon"></div></div>'
           zIndex={1600}

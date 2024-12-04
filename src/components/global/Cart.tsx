@@ -46,7 +46,7 @@ const Cart = () => {
           <div className="px-2">
             {items.length === 0 && (
               <div className="w-full h-60 flex justify-center items-center text-neutral-400 italic">
-                nothing in cart
+                Lựa thêm món ngon nhé 🥰
               </div>
             )}
             {items.map(({ product, quantity }) => (

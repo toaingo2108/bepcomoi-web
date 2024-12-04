@@ -15,7 +15,7 @@ const Footer = () => {
       <Wrapper className="flex flex-col py-16">
         <div className="flex justify-center">
           <div className="relative h-36 w-36">
-            <Image src="/logo-mammy.png" alt="logo" fill className="object-contain" priority />
+            <Image src="/logo.png" alt="logo" fill className="object-contain" priority />
           </div>
         </div>
         <div className="grid lg:grid-cols-4 grid-cols-1 gap-4">
@@ -35,12 +35,17 @@ const Footer = () => {
           </div>
           <div>
             <h3 className="font-bold">Thông tin liên hệ</h3>
+            <div className="flex flex-col gap-2 mt-4">
+              <FooterLink href="tel:+84386857571">038.68.57.571</FooterLink>
+              <FooterLink href="tel:+84964530045">096.45.30.045</FooterLink>
+              <FooterLink href="mailto:bepcomoi7583@gmail.com">bepcomoi7583@gmail.com</FooterLink>
+            </div>
           </div>
           <div>
             <h3 className="font-bold">Liên kết</h3>
             <div className="flex flex-col gap-2 mt-4">
-              <FooterLink>Phương pháp ăn dặm bổ não</FooterLink>
-              <FooterLink>Niềm tin của Mămmy</FooterLink>
+              <FooterLink>Về bepcomoi.com</FooterLink>
+              <FooterLink>Bài viết</FooterLink>
               <FooterLink>Help</FooterLink>
             </div>
           </div>
@@ -59,25 +64,42 @@ const Footer = () => {
         </div>
         <div className="mt-6 grid lg:grid-cols-4 grid-cols-1 gap-4">
           <div className="lg:col-span-3 flex flex-col gap-1">
-            <p className="font-bold text-sm">CÔNG TY TNHH MĂMMY VIỆT NAM</p>
-            <p className="font-bold text-sm">Giấy chứng nhận ĐKDN số 0316964191</p>
-            <p className="font-bold text-sm">Do Sở Kế hoạch đầu tư cấp ngày 29/09/2021</p>
+            <p className="font-bold text-sm">BEP CO MOI</p>
+            <p className="font-bold text-sm">TUI CO KHO MUC</p>
+            <a href="mailto:bepcomoi7583@gmail.com" className="font-bold text-sm">
+              bepcomoi7583@gmail.com
+            </a>
+            <p className="text-sm">CSC: 247 Trường Sa, P.Hoài Hương, Tx.Hoài Nhơn, Bình Định</p>
             <p className="text-sm">
-              Trụ sở chính: 112/11-112/13 Nguyễn Văn Hưởng, Thảo Điền, Tp. Thủ Đức, Tp. Hồ Chí Minh,
-              Việt Nam Nhà máy Mămmy Bình Dương: 329 Đường Hưng Định 24, Kp Hưng Lộc, Phường Hưng
-              Định, Thuận An, Tỉnh Bình Dương.
+              CN1: 64 Nguyễn Đình Thụ, P.Hoài Hương, Tx.Hoài Nhơn, Bình Định
             </p>
+            <p className="text-sm">CN2: 90/7 Trần Hưng Đạo, P.Hải Cảng, TP.Quy Nhơn, Bình Định</p>
+            <p className="text-sm">CN3: 506/2 Đường 3/2, P.14, Q.10, TP.HCM</p>
+            <p className="text-sm">VP: 64 Võ Oanh, P.25, Q.Bình Thạnh, TP.HCM</p>
             <p className="text-sm font-bold">
-              TỔNG ĐÀI CSKH: <span className="text-primary">0877 050 450</span>
+              Vui lòng liên hệ:{" "}
+              <a href="tel:+84386857571" className="text-primary">
+                038.68.57.571
+              </a>
+              <span className="mx-2">-</span>
+              <a href="tel:+84964530045" className="text-primary">
+                096.45.30.045
+              </a>
             </p>
           </div>
           <div className="lg:col-span-1 relative aspect-[4/1]">
-            <Image src="/logoSaleNoti.png" alt="logosalenoti" fill className="object-contain" priority />
+            <Image
+              src="/logoSaleNoti.png"
+              alt="logosalenoti"
+              fill
+              className="object-contain"
+              priority
+            />
           </div>
         </div>
       </Wrapper>
       <div className="h-16 bg-primary text-white font-bold flex justify-center items-center">
-        Copyright © 2023 MĂMMY
+        Copyright © 2025 bepcomoi.com
       </div>
     </footer>
   );

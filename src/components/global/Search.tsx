@@ -1,16 +1,27 @@
 "use client";
 
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, useState } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "../ui/dialog";
 import { SearchIcon } from "lucide-react";
 import { Button } from "../ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs";
 import { Input } from "../ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../ui/select";
+import { Form, FormControl, FormField, FormItem } from "../ui/form";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useRouter } from "next/navigation";
 
 const Search = () => {
+  const [open, setOpen] = useState(false);
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   return (
-    <Dialog>
+    <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         <Button size="icon" variant="ghost" className="hover:bg-transparent shrink-0">
           <SearchIcon className="text-primary w-3.5 h-3.5" strokeWidth={4} />
@@ -36,9 +47,16 @@ const Search = () => {
             >
               Món ăn
             </TabsTrigger>
+            <TabsTrigger
+              value="order"
+              className="data-[state=active]:bg-primary data-[state=active]:text-white px-4 py-3 border rounded-t-lg rounded-b-none"
+            >
+              Đơn hàng
+            </TabsTrigger>
           </TabsList>
           <ContentTab value="news" />
           <ContentTab value="food" />
+          <SearchOrderTab onAfterSearch={handleClose} />
         </Tabs>
       </DialogContent>
     </Dialog>
@@ -48,7 +66,7 @@ const Search = () => {
 export default Search;
 
 interface ContentTabProps {
-  value: "news" | "food";
+  value: "news" | "food" | "order";
 }
 
 const ContentTab: FunctionComponent<ContentTabProps> = ({ value }) => {
@@ -97,6 +115,58 @@ const ContentTab: FunctionComponent<ContentTabProps> = ({ value }) => {
           <SearchIcon className="text-white w-3.5 h-3.5" strokeWidth={4} />
         </Button>
       </div>
+    </TabsContent>
+  );
+};
+
+interface SearchOrderTabProps {
+  onAfterSearch: () => void;
+}
+const SearchOrderTab = ({ onAfterSearch }: SearchOrderTabProps) => {
+  const router = useRouter();
+  const formSchema = z.object({
+    orderCode: z.string().min(1),
+  });
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      orderCode: "",
+    },
+  });
+  const onSubmit = (values: z.infer<typeof formSchema>) => {
+    const { orderCode } = values;
+    if (orderCode) {
+      router.push(`/order/${orderCode}`);
+      onAfterSearch();
+    }
+  };
+
+  return (
+    <TabsContent value="order" className="min-h-[40vh] mt-1">
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)}>
+          <div className="flex gap-2">
+            <FormField
+              control={form.control}
+              name="orderCode"
+              render={({ field }) => (
+                <FormItem className="flex-1">
+                  <FormControl>
+                    <Input
+                      className="flex-1 rounded-none"
+                      placeholder="Nhập mã đơn hàng..."
+                      {...field}
+                    />
+                  </FormControl>
+                </FormItem>
+              )}
+            />
+            <Button className="rounded-full" size="icon" type="submit">
+              <SearchIcon className="text-white w-3.5 h-3.5" strokeWidth={4} />
+            </Button>
+          </div>
+        </form>
+      </Form>
     </TabsContent>
   );
 };

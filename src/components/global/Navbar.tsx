@@ -39,7 +39,7 @@ const Navbar = ({ categories }: NavbarProps) => {
         <div className="col-span-8 lg:flex items-center hidden">
           <Menu menuItems={menuItemsData} />
         </div>
-        <div className="flex items-center justify-end">
+        <div className="flex items-center justify-end space-x-1">
           <Search />
           <Cart />
           <MenuMobile menuItems={menuItemsData} />

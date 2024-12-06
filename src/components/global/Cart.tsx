@@ -7,7 +7,6 @@ import { ShoppingBagIcon, XIcon } from "lucide-react";
 import Link from "next/link";
 import { buildImageUrl, cn, formatPrice } from "@/lib/utils";
 import Image from "next/image";
-import { ScrollArea } from "../ui/scroll-area";
 import useCart from "@/hooks/use-cart";
 
 const Cart = () => {
@@ -22,16 +21,7 @@ const Cart = () => {
   return (
     <HoverCard closeDelay={0} openDelay={0}>
       <HoverCardTrigger asChild>
-        <Link
-          href="/thanh-toan"
-          className={cn(
-            buttonVariants({
-              className: "group hover:bg-transparent relative hidden lg:flex",
-              variant: "ghost",
-              size: "icon",
-            })
-          )}
-        >
+        <Button size="icon" variant="ghost" className="group hover:bg-transparent relative flex">
           <ShoppingBagIcon
             className="text-primary h-8 w-8 group-hover:fill-primary"
             strokeWidth={1.5}
@@ -39,7 +29,7 @@ const Cart = () => {
           <span className="absolute text-white hidden group-hover:inline-block">
             {items.length}
           </span>
-        </Link>
+        </Button>
       </HoverCardTrigger>
       <HoverCardContent className="w-72 p-0 overflow-hidden" sideOffset={0} align="end">
         <div className="h-60 overflow-y-auto">
@@ -64,7 +54,9 @@ const Cart = () => {
                     />
                   </div>
                   <div className="text-sm">
-                    <p className="font-bold text-primary-foreground max-w-40 overflow-hidden whitespace-nowrap text-ellipsis">{product.name}</p>
+                    <p className="font-bold text-primary-foreground max-w-40 overflow-hidden whitespace-nowrap text-ellipsis">
+                      {product.name}
+                    </p>
                     <p className="text-muted-foreground">
                       {quantity} x{" "}
                       <span className="text-primary font-semibold">

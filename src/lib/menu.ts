@@ -1,6 +1,6 @@
 export const menuItems: MenuItemType[] = [
   { name: "Trang chủ", href: "/" },
-  { name: "Về Bepcomoi", href: "/about" },
+  { name: "Về Bếp Có Mồi", href: "/about" },
   {
     name: "Cửa hàng",
     href: "/cua-hang",
@@ -43,7 +43,7 @@ export const menuItems: MenuItemType[] = [
   },
   // { name: "Thực đơn ăn dặm bổ não", href: "/chuyen-muc/thuc-don-an-dam" },
   {
-    name: "Help",
+    name: "Trợ giúp",
     href: "/help",
     // subItems: [
     //   {

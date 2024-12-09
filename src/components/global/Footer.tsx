@@ -1,8 +1,13 @@
+"use client";
+
 import Image from "next/image";
 import React from "react";
 import Wrapper from "./Wrapper";
 import { CheckIcon } from "lucide-react";
 import Link from "next/link";
+import ClientOnly from "../client-only";
+import Iconify from "../iconify";
+import { FacebookEmbed } from "react-social-media-embed";
 
 const Footer = () => {
   return (
@@ -21,13 +26,16 @@ const Footer = () => {
         <div className="grid lg:grid-cols-4 grid-cols-1 gap-4">
           <div>
             <h3 className="font-bold">Trang Facebook</h3>
-            <iframe
-              src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D61569239116841&tabs=timeline&width=292&height=320&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=337909515527733"
-              width="292"
-              height="320"
-              allowFullScreen={true}
-              allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-            ></iframe>
+            <ClientOnly>
+              <iframe
+                src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D61569239116841&tabs=none&width=292&height=130&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=590134493394375"
+                width="292"
+                height="130"
+                style={{ border: "none", overflow: "hidden" }}
+                allowFullScreen
+                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+              ></iframe>
+            </ClientOnly>
           </div>
           <div>
             <h3 className="font-bold">Thông tin liên hệ</h3>

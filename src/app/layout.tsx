@@ -9,6 +9,8 @@ import ScrollToTop from "@/components/scroll-to-top";
 import "yet-another-react-lightbox/styles.css";
 import "./globals.css";
 import { getListCategories } from "@/lib/api";
+import SpeedDialComponent from "@/components/speed-dial";
+import ClientOnly from "@/components/client-only";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -61,6 +63,9 @@ export default async function RootLayout({
         <ScrollToTop />
         <Navbar categories={categories} />
         {children}
+        <ClientOnly>
+          <SpeedDialComponent />
+        </ClientOnly>
         <Footer />
       </body>
     </html>

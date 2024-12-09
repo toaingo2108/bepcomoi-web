@@ -21,17 +21,13 @@ const Footer = () => {
         <div className="grid lg:grid-cols-4 grid-cols-1 gap-4">
           <div>
             <h3 className="font-bold">Trang Facebook</h3>
-            {/* <iframe
-              src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FBepcomoi%2F%3Fref%3Dembed_page&tabs=timeline&width=340&height=328&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false&appId=337909515527733"
-              style={{
-                border: "none",
-                overflow: "hidden",
-              }}
-              className="w-full"
-              frameBorder={0}
-              allowFullScreen
+            <iframe
+              src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D61569239116841&tabs=timeline&width=292&height=320&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=337909515527733"
+              width="292"
+              height="320"
+              allowFullScreen={true}
               allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-            ></iframe> */}
+            ></iframe>
           </div>
           <div>
             <h3 className="font-bold">Thông tin liên hệ</h3>
@@ -86,15 +82,6 @@ const Footer = () => {
                 096.45.30.045
               </a>
             </p>
-          </div>
-          <div className="lg:col-span-1 relative aspect-[4/1]">
-            <Image
-              src="/logoSaleNoti.png"
-              alt="logosalenoti"
-              fill
-              className="object-contain"
-              priority
-            />
           </div>
         </div>
       </Wrapper>

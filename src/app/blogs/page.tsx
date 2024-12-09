@@ -4,6 +4,10 @@ import Wrapper from "@/components/global/Wrapper";
 import React from "react";
 
 const BlogsPage = () => {
+  if (process.env.NODE_ENV === "development") {
+    return <></>;
+  }
+
   return (
     <Wrapper className="py-10">
       <div className="flex gap-4 justify-center flex-wrap">

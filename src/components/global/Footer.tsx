@@ -19,7 +19,14 @@ const Footer = () => {
       <Wrapper className="flex flex-col py-16">
         <div className="flex justify-center">
           <div className="relative h-36 w-36">
-            <Image src="/logo.png" alt="logo" fill className="object-contain" priority />
+            <Image
+              src="/logo.png"
+              alt="logo"
+              fill
+              className="object-contain"
+              priority
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            />
           </div>
         </div>
         <div className="grid lg:grid-cols-4 grid-cols-1 gap-4">

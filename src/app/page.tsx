@@ -31,6 +31,7 @@ const HomePage = () => {
                   fill
                   className="object-contain"
                   priority
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
               </div>
               <div className="relative aspect-[4/3]">
@@ -40,6 +41,7 @@ const HomePage = () => {
                   fill
                   className="object-contain"
                   priority
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
               </div>
               <div className="relative aspect-[4/3]">
@@ -49,6 +51,7 @@ const HomePage = () => {
                   fill
                   className="object-contain"
                   priority
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
               </div>
             </div>

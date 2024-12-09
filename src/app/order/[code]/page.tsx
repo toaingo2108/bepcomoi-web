@@ -1,5 +1,6 @@
 import Confetti from "@/components/confetti";
 import Wrapper from "@/components/global/Wrapper";
+import NotFound from "@/components/not-found";
 import { Button } from "@/components/ui/button";
 import { checkVerifyOrder } from "@/lib/api";
 import { FORMAT_STATUS_ORDER, PaymentMethodEnum } from "@/types/order";
@@ -20,14 +21,7 @@ const OrderDetailPage = async ({ params, searchParams }: OrderDetailPageProps) =
   const order = await checkVerifyOrder(params.code, new URLSearchParams(searchParams).toString());
 
   if (!order) {
-    return (
-      <Wrapper className="py-20">
-        <div className="flex flex-col items-center justify-center gap-4">
-          <Image src="/logo.png" width={200} height={200} alt="404" />
-          <p className="text-primary text-lg font-bold">Không tìm thấy đơn hàng</p>
-        </div>
-      </Wrapper>
-    );
+    return <NotFound>Không tìm thấy đơn hàng</NotFound>;
   }
 
   const isSuccess =

@@ -1,5 +1,6 @@
 import BreadcrumbContainer from "@/components/global/BreadcrumbContainer";
 import Wrapper from "@/components/global/Wrapper";
+import NotFound from "@/components/not-found";
 import ProductImageContainer from "@/components/product/ProductImageContainer";
 import ProductInfoCard from "@/components/product/ProductInfoCard";
 import ProductQuestions from "@/components/product/ProductQuestions";
@@ -19,14 +20,7 @@ const ProductDetailPage = async ({ params }: ProductDetailPageProps) => {
   const product = await getDetailProduct(params.slug);
 
   if (!product) {
-    return (
-      <Wrapper>
-        <div className="flex flex-col items-center justify-center gap-4">
-          <Image src="/logo.png" width={200} height={200} alt="404" />
-          <p className="text-primary text-lg font-bold">Không tìm thấy sản phẩm</p>
-        </div>
-      </Wrapper>
-    );
+    return <NotFound>Không tìm thấy sản phẩm</NotFound>;
   }
 
   return (

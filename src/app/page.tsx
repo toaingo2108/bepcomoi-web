@@ -64,7 +64,6 @@ const HomePage = () => {
               priority
             />
           </div>
-          <video src="/REVIEW-.mp4" autoPlay loop />
           <div className="w-full h-auto aspect-[1644/649] relative">
             <Image
               src="/intro1.jpg"

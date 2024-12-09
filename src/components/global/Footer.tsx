@@ -7,7 +7,6 @@ import { CheckIcon } from "lucide-react";
 import Link from "next/link";
 import ClientOnly from "../client-only";
 import Iconify from "../iconify";
-import { FacebookEmbed } from "react-social-media-embed";
 
 const Footer = () => {
   return (

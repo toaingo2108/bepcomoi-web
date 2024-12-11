@@ -61,7 +61,7 @@ export default async function RootLayout({
           showAtBottom={false}
         />
         <ScrollToTop />
-        <Navbar categories={categories} />
+        <Navbar categories={categories || []} />
         {children}
         <ClientOnly>
           <SpeedDialComponent />

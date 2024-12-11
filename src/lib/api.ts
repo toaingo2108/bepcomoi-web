@@ -42,17 +42,9 @@ export const getDetailProduct = async (slug: string) => {
 
 // ======================== ORDER ===========================
 
-export const getDetailOrder = async (id: string) => {
-  const response = await fetcher<Order>(`/orders/detail?id=${id}`, {
+export const getDetailOrder = async (code: string) => {
+  const response = await fetcher<Order>(`/orders/detail/${code}`, {
     cache: "no-cache",
   });
-  return response.results;
-};
-
-export const checkVerifyOrder = async (code: string, query: string) => {
-  const response = await fetcher<Order>(`/orders/verify/${code}?${query}`, {
-    cache: "no-cache",
-  });
-
   return response.results;
 };

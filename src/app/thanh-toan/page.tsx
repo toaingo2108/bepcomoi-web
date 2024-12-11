@@ -41,6 +41,8 @@ import BreadcrumbContainer from "@/components/global/BreadcrumbContainer";
 import { useRouter } from "next/navigation";
 import useCart from "@/hooks/use-cart";
 import { createOrder } from "./actions";
+import Iconify from "@/components/iconify";
+import Image from "next/image";
 
 const formSchema = z.object({
   receiver: z.string().min(1),
@@ -78,7 +80,7 @@ const PayPage = () => {
     startTransition(async () => {
       const order = await createOrder(values, items, totalPrice);
       clearCart();
-      router.push(order.paymentUrl ?? `/order/${order.code}`);
+      router.push(order?.paymentUrl ?? `/order/${order?.code}`);
     });
   };
 
@@ -273,7 +275,7 @@ const PayPage = () => {
                                 value={field.value}
                                 className="flex flex-col space-y-1"
                               >
-                                {/* <FormItem className="flex items-center space-x-3 space-y-0">
+                                <FormItem className="flex items-center space-x-3 space-y-0">
                                   <FormControl>
                                     <div className="flex flex-col space-y-4 w-full">
                                       <div className="flex items-center space-x-2">
@@ -286,8 +288,14 @@ const PayPage = () => {
                                           className="text-muted-foreground font-normal"
                                           htmlFor="r1"
                                         >
-                                          Chuyển khoản ngân hàng
+                                          Thanh toán qua MoMo
                                         </Label>
+                                        <Image
+                                          src="/Logo-MoMo-Square.png"
+                                          alt="momo-logo"
+                                          width={20}
+                                          height={20}
+                                        />
                                       </div>
                                       {field.value === "BANK" && (
                                         <div className="relative text-muted-foreground bg-neutral-100 text-sm p-4">
@@ -297,11 +305,12 @@ const PayPage = () => {
                                               clipPath: "polygon(50% 0%, 0% 100%, 100% 100%)",
                                             }}
                                           ></div>
+                                          <p>TEST MOMO</p>
                                         </div>
                                       )}
                                     </div>
                                   </FormControl>
-                                </FormItem> */}
+                                </FormItem>
                                 <FormItem className="flex items-center space-x-3 space-y-0">
                                   <FormControl>
                                     <div className="flex flex-col space-y-4 w-full">

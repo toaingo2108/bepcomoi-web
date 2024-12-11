@@ -1,4 +1,4 @@
 export type Response<T> = {
-  results: T;
+  results?: T;
   message: string;
 };

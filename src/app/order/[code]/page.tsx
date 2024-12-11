@@ -2,7 +2,7 @@ import Confetti from "@/components/confetti";
 import Wrapper from "@/components/global/Wrapper";
 import NotFound from "@/components/not-found";
 import { Button } from "@/components/ui/button";
-import { checkVerifyOrder } from "@/lib/api";
+import { getDetailOrder } from "@/lib/api";
 import { FORMAT_STATUS_ORDER, PaymentMethodEnum } from "@/types/order";
 import { CheckCircle2Icon, XCircleIcon } from "lucide-react";
 import Image from "next/image";
@@ -18,7 +18,7 @@ interface OrderDetailPageProps {
   };
 }
 const OrderDetailPage = async ({ params, searchParams }: OrderDetailPageProps) => {
-  const order = await checkVerifyOrder(params.code, new URLSearchParams(searchParams).toString());
+  const order = await getDetailOrder(params.code);
 
   if (!order) {
     return <NotFound>Không tìm thấy đơn hàng</NotFound>;

@@ -13,7 +13,10 @@ interface StorePageProps {
   };
 }
 const StorePage = async ({ searchParams }: StorePageProps) => {
-  const [products, categories] = await Promise.all([getListProducts(searchParams.c), getListCategories()]);
+  const [products, categories] = await Promise.all([
+    getListProducts(searchParams.c),
+    getListCategories(),
+  ]);
 
   return (
     <>
@@ -23,7 +26,7 @@ const StorePage = async ({ searchParams }: StorePageProps) => {
           { label: "Sản phẩm", href: searchParams.c ? "/cua-hang" : undefined },
           {
             label: searchParams.c
-              ? categories.find((c) => c.slug === searchParams.c)?.name
+              ? categories?.find((c) => c.slug === searchParams.c)?.name
               : undefined,
           },
         ]}
@@ -47,17 +50,17 @@ const StorePage = async ({ searchParams }: StorePageProps) => {
         </p>
         <div className="flex gap-10">
           <div className="hidden xl:block">
-            <CategoriesFilter categories={categories} />
+            <CategoriesFilter categories={categories || []} />
           </div>
           <div className="flex-1 flex flex-col gap-4">
             <div className="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4">
-              {products.map((product) => (
+              {products?.map((product) => (
                 <ProductItem key={product.id} product={product} />
               ))}
             </div>
 
             <div className="col-span-3">
-              <Categories categories={categories} />
+              <Categories categories={categories || []} />
             </div>
           </div>
         </div>

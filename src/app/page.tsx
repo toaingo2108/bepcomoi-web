@@ -9,9 +9,9 @@ const HomePage = () => {
       <div>
         <Banner />
         <div className="relative w-full aspect-[5/2]">
-          <Image src="/news.jpg" alt="news" fill className="object-cover" priority />
+          <Image src="/home1.jpg" alt="home" fill className="object-cover" priority />
         </div>
-        <section>
+        {/* <section>
           <Wrapper className="py-10">
             <h3 className="text-center font-bold text-primary text-xl">
               TẤT CẢ NHỮNG GÌ CON CẦN LÀ MỘT KHỞI ĐẦU MẠNH MẼ
@@ -56,29 +56,29 @@ const HomePage = () => {
               </div>
             </div>
           </Wrapper>
-        </section>
+        </section> */}
         <section>
           <div className="relative w-full h-auto aspect-[1644/742]">
             <Image
-              src="/WEB-MAMMY-DESKTOP05--2048x925.jpg"
+              src="/home2.jpg"
               alt="image"
               fill
-              className="select-none pointer-events-none object-contain"
+              className="select-none pointer-events-none object-cover"
               priority
             />
           </div>
           <div className="w-full h-auto aspect-[1644/649] relative">
             <Image
-              src="/intro1.jpg"
+              src="/home3.jpg"
               alt="image"
               fill
-              className="object-contain select-none pointer-events-none"
+              className="object-cover select-none pointer-events-none"
               priority
             />
           </div>
           <div className="w-full h-auto aspect-[1644/649] relative">
             <Image
-              src="/intro2.jpg"
+              src="/home4.jpg"
               alt="image"
               fill
               className="object-contain select-none pointer-events-none"

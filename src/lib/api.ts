@@ -48,3 +48,12 @@ export const getDetailOrder = async (code: string) => {
   });
   return response.results;
 };
+
+// ======================== ANALYTIC ===========================
+export const trackVisit = async () => {
+  const response = await fetcher<Order>(`/analytic/track-visit`, {
+    cache: "no-cache",
+    method: "POST",
+  });
+  return response.results;
+};

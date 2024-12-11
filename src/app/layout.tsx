@@ -11,6 +11,7 @@ import "./globals.css";
 import { getListCategories } from "@/lib/api";
 import SpeedDialComponent from "@/components/speed-dial";
 import ClientOnly from "@/components/client-only";
+import TrackVisit from "@/components/global/TrackVisit";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -67,6 +68,7 @@ export default async function RootLayout({
           <SpeedDialComponent />
         </ClientOnly>
         <Footer />
+        {process.env.NODE_ENV === "production" && <TrackVisit />}
       </body>
     </html>
   );

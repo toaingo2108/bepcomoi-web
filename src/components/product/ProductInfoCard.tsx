@@ -14,7 +14,7 @@ interface ProductInfoCardProps {
 }
 const ProductInfoCard = ({ product }: ProductInfoCardProps) => {
   return (
-    <div className="w-full rounded-lg h-fit p-6 shadow-[0px_5px_20px_0px_#E3F8C5] mb-10">
+    <div className="w-full rounded-lg h-fit p-6 shadow-[0px_5px_20px_0px_#eee9e9] mb-10">
       <Accordion type="multiple" defaultValue={["description", "ingredient"]} className="w-full">
         <AccordionItem value="description">
           <AccordionTrigger>

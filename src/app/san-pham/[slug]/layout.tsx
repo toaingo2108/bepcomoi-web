@@ -8,18 +8,18 @@ const ProductDetailLayout = ({ children }: ProductDetailLayoutProps) => {
   return (
     <>
       {children}
-      <div className="aspect-[1488/587] relative mt-10">
+      <div className="aspect-[1908/600] relative mt-10">
         <Image
-          src="https://mammy.vn/wp-content/uploads/2024/03/WEB-MAMMY-DESKTOP-09-1-2048x808.jpg.webp"
+          src="/home1.jpg"
           alt=""
           fill
           className="object-contain"
           priority
         />
       </div>
-      <div className="aspect-[1488/756] relative mt-10">
+      <div className="aspect-[1908/420] relative">
         <Image
-          src="https://mammy.vn/wp-content/uploads/2024/03/WEB-MAMMY-DESKTOP-07-2048x808.jpg.webp"
+          src="/sliderdesktop1.jpg"
           alt=""
           fill
           className="object-contain"

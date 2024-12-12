@@ -20,19 +20,15 @@ const ProductQuestions = ({ product }: ProductQuestionsProps) => {
           <AccordionTrigger className="font-bold text-primary-foreground">
             <div className="flex items-center">
               <DotIcon className="w-4 h-4 mr-1.5 shrink-0" strokeWidth={8} />
-              Tại sao phải bảo quản các hũ hạt (hạt quý, hạt mix, gạo) trong ngăn đông? Bảo quản như
-              thế có phải rã đông không?
+              Nguồn gốc, xuất xứ của Mực từ Bếp Có Mồi là ở đâu?
             </div>
           </AccordionTrigger>
           <AccordionContent className="text-muted-foreground text-base text-justify">
-            Để đảm bảo chất lượng sản phẩm và thời gian bảo quản lâu nhất, mẹ nên bảo quản các hũ
-            hạt (hạt quý, hạt mix, gạo) trong ngăn đông tủ lạnh vì gạo và hạt nhà Mămmy là loại hạt
-            hữu cơ không chứa chất bảo quản, nếu để ở nhiệt độ thường sẽ dễ sinh ra mối mọt. Hạt khô
-            ráo nên sẽ không bị kết dính và không cần phải rã đông. Khi nào chuẩn bị bữa ăn cho bé,
-            mẹ chỉ cần lấy ra nấu.
+            Sản phẩm chất lượng cao, được tuyển chọn kĩ lưỡng từ nguồn hải sản đúng chuẩn vị của
+            biển cả
           </AccordionContent>
         </AccordionItem>
-        <AccordionItem value="item-2">
+        {/* <AccordionItem value="item-2">
           <AccordionTrigger className="font-bold text-primary-foreground">
             <div className="flex items-center">
               <DotIcon className="w-4 h-4 mr-1.5 shrink-0" strokeWidth={8} />
@@ -47,7 +43,8 @@ const ProductQuestions = ({ product }: ProductQuestionsProps) => {
         <AccordionItem value="item-3">
           <AccordionTrigger className="font-bold text-primary-foreground">
             <div className="flex items-center">
-              <DotIcon className="w-4 h-4 mr-1.5 shrink-0" strokeWidth={8} />1 hũ có thể ăn được bao lâu?
+              <DotIcon className="w-4 h-4 mr-1.5 shrink-0" strokeWidth={8} />1 hũ có thể ăn được bao
+              lâu?
             </div>
           </AccordionTrigger>
           <AccordionContent className="text-muted-foreground text-base text-justify">
@@ -55,7 +52,7 @@ const ProductQuestions = ({ product }: ProductQuestionsProps) => {
             (2-3 thìa cafe) – Bé 9-11M nấu 15-20gr/ bữa (3-4 thìa cafe) – Bé 12-24M+ nấu 30gr/ bữa
             (5-6 thìa cafe)
           </AccordionContent>
-        </AccordionItem>
+        </AccordionItem> */}
       </Accordion>
     </div>
   );

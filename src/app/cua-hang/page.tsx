@@ -34,19 +34,12 @@ const StorePage = async ({ searchParams }: StorePageProps) => {
       <Wrapper className="py-10">
         <div className="w-full flex justify-center">
           <div className="relative w-1/3 aspect-video">
-            <Image
-              src="https://mammy.vn/wp-content/uploads/2022/06/mammy-phat-trien-tri-nao-toan-dien.jpg.webp"
-              alt=""
-              className="object-contain"
-              fill
-              priority
-            />
+            <Image src="/logo.png" alt="" className="object-contain" fill priority />
           </div>
         </div>
         <p className="font-bold text-lg text-center lg:px-56 px-4 my-6">
-          Ở Mămmy, chúng tôi có những sản phẩm 100% nguồn gốc Tự nhiên, Organic, Nhập khẩu, và tốt
-          cho não bộ của em bé của bạn. Mỗi loại thức ăn đều làm từ những nguyên liệu cao cấp, được
-          lựa chọn kỹ lưỡng, chúng an toàn hơn và mềm hơn khi nấu các món ăn dặm cho bé.
+          Ở Bếp Có Mồi, chúng tôi có những sản phẩm chất lượng cao, được tuyển chọn kĩ lưỡng từ
+          nguồn hải sản đúng chuẩn vị của biển cả
         </p>
         <div className="flex gap-10">
           <div className="hidden xl:block">

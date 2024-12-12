@@ -5,16 +5,16 @@ import React from "react";
 const IntroPage = () => {
   return (
     <div>
-      <div className="w-full h-auto aspect-[1488/582] relative">
-        <Image
-          src="https://mammy.vn/wp-content/uploads/2024/04/MMY_WEB_DESK_SECTION04-2048x802.png.webp"
-          alt=""
-          fill
-          className="object-contain"
-          priority
-        />
-      </div>
-      <Wrapper className="text-justify text-muted-foreground text-sm flex flex-col space-y-6 py-6">
+      {/* <Wrapper className="text-justify text-muted-foreground text-sm flex flex-col space-y-6 py-6 !px-0 max-w-[1908px]">
+        <div className="w-full h-auto aspect-[1488/582] relative">
+          <Image
+            src="https://mammy.vn/wp-content/uploads/2024/04/MMY_WEB_DESK_SECTION04-2048x802.png.webp"
+            alt=""
+            fill
+            className="object-contain"
+            priority
+          />
+        </div>
         <p>
           Mămmy được ra đời sau khi tôi có PiPi- con trai đầu lòng của tôi. Một em bé xinh xắn, mắt
           đen láy, hay cười và sáng choang. Tôi yêu nó hơn tất cả những gì tôi có thể nói với bạn,
@@ -41,34 +41,34 @@ const IntroPage = () => {
           thiệt thòi, bao nhiêu năm qua chúng ta vẫn không có nhiều lựa chọn khi nói đến đồ ăn dặm
           cho bé. Lúc đó tôi nghĩ, mình có thể làm đồ ăn dặm cho con tốt hơn thế này nhiều!
         </p>
-      </Wrapper>
-      <div className="w-full h-auto aspect-[1974/1559] relative">
-        <Image
-          src="https://mammy.vn/wp-content/uploads/2024/04/MMY_WEB_DESK_SECTION01-2048x1617.png"
-          alt=""
-          fill
-          className="object-contain"
-          priority
-        />
-      </div>
-      <Wrapper className="text-justify text-muted-foreground text-sm flex flex-col space-y-6 py-6">
-        <p>
-          Đội ngũ sáng lập của Mămmy là các y bác có chuyên môn cao trong ngành. Chúng tôi cũng trải
-          qua việc nuôi con, cũng đã từng mua tất cả những thứ trong và ngoài nước nhưng không thấy
-          nó có tác dụng đối với con mình. Vì thế chúng tôi muốn tạo ra những thứ đặc biệt, phù hợp
-          với nhu cầu dinh dưỡng, với cơ địa, với thể trạng và thói quen ăn uống sinh hoạt của người
-          Việt Nam.
-        </p>
-      </Wrapper>
-      <div className="w-full h-auto aspect-[1488/561] relative">
-        <Image
-          src="https://mammy.vn/wp-content/uploads/2024/04/MMY_WEB_DESK_SECTION02-2048x773.png.webp"
-          alt=""
-          fill
-          className="object-contain"
-          priority
-        />
-      </div>
+        <div className="w-full h-auto aspect-[1974/1559] relative">
+          <Image
+            src="https://mammy.vn/wp-content/uploads/2024/04/MMY_WEB_DESK_SECTION01-2048x1617.png"
+            alt=""
+            fill
+            className="object-contain"
+            priority
+          />
+        </div>
+        <Wrapper className="text-justify text-muted-foreground text-sm flex flex-col space-y-6 py-6">
+          <p>
+            Đội ngũ sáng lập của Mămmy là các y bác có chuyên môn cao trong ngành. Chúng tôi cũng
+            trải qua việc nuôi con, cũng đã từng mua tất cả những thứ trong và ngoài nước nhưng
+            không thấy nó có tác dụng đối với con mình. Vì thế chúng tôi muốn tạo ra những thứ đặc
+            biệt, phù hợp với nhu cầu dinh dưỡng, với cơ địa, với thể trạng và thói quen ăn uống
+            sinh hoạt của người Việt Nam.
+          </p>
+        </Wrapper>
+        <div className="w-full h-auto aspect-[1488/561] relative">
+          <Image
+            src="https://mammy.vn/wp-content/uploads/2024/04/MMY_WEB_DESK_SECTION02-2048x773.png.webp"
+            alt=""
+            fill
+            className="object-contain"
+            priority
+          />
+        </div>
+      </Wrapper> */}
     </div>
   );
 };

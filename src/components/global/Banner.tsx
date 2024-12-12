@@ -40,7 +40,7 @@ const Banner = () => {
       setApi={setApi}
       className="w-full relative"
     >
-      <CarouselContent className="aspect-[1908/450] w-full -ml-0">
+      <CarouselContent className="aspect-[1908/420] w-full -ml-0">
         <CarouselItem className="relative">
           <Image src="/sliderdesktop1.jpg" alt="slider" fill className="object-cover" priority />
         </CarouselItem>

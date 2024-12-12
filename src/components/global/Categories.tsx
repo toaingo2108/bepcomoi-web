@@ -11,7 +11,7 @@ interface CategoriesProps {
 const Categories = ({ categories }: CategoriesProps) => {
   return (
     <div className="flex flex-col gap-6">
-      <h2 className="font-bold text-2xl text-center">Danh mục sản phẩm Mămmy</h2>
+      <h2 className="font-bold text-2xl text-center">Danh mục sản phẩm BếpCóMồi</h2>
 
       <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-4">
         {categories.map((category) => (

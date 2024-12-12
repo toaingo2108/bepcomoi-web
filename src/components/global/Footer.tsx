@@ -6,16 +6,10 @@ import Wrapper from "./Wrapper";
 import { CheckIcon } from "lucide-react";
 import Link from "next/link";
 import ClientOnly from "../client-only";
-import Iconify from "../iconify";
 
 const Footer = () => {
   return (
-    <footer
-      className="h-fit border-t-4 border-primary/60 bg-cover bg-center bg-no-repeat relative"
-      style={{
-        backgroundImage: "url('/FooterBGXL.jpg')",
-      }}
-    >
+    <footer className="h-fit border-t-4 border-primary/60 relative bg-gradient-to-b from-lime-50 to-lime-100">
       <Wrapper className="flex flex-col py-16">
         <div className="flex justify-center">
           <div className="relative h-36 w-36">

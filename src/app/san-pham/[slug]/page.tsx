@@ -57,15 +57,17 @@ const ProductDetailPage = async ({ params }: ProductDetailPageProps) => {
             </div>
           </div>
         </section>
-        <section className="flex flex-col">
-          <div className="flex flex-col items-center justify-center">
-            <MessagesSquareIcon className="w-24 h-24 shrink-0" strokeWidth={0.5} />
-            <p className="text-primary-foreground text-lg font-bold">Các câu hỏi thường gặp</p>
-          </div>
-          <div>
-            <ProductQuestions product={product} />
-          </div>
-        </section>
+        {!!product?.questions?.length && (
+          <section className="flex flex-col">
+            <div className="flex flex-col items-center justify-center">
+              <MessagesSquareIcon className="w-24 h-24 shrink-0" strokeWidth={0.5} />
+              <p className="text-primary-foreground text-lg font-bold">Các câu hỏi thường gặp</p>
+            </div>
+            <div>
+              <ProductQuestions product={product} />
+            </div>
+          </section>
+        )}
       </Wrapper>
     </>
   );

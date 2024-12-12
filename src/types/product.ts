@@ -16,6 +16,7 @@ export type Product = {
 };
 
 export type ProductQuestion = {
-  question: string;
-  answer: string;
+  id: string;
+  title: string;
+  content: string;
 };

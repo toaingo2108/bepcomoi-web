@@ -58,8 +58,8 @@ const HomePage = () => {
             </div>
           </Wrapper>
         </section> */}
-          {/* <section>
-            <div className="relative w-full h-auto aspect-[1644/742]">
+          <section>
+            <div className="relative w-full h-auto aspect-[1908/600]">
               <Image
                 src="/home2.jpg"
                 alt="image"
@@ -68,7 +68,7 @@ const HomePage = () => {
                 priority
               />
             </div>
-            <div className="w-full h-auto aspect-[1644/649] relative">
+            <div className="w-full h-auto aspect-[1908/600] relative">
               <Image
                 src="/home3.jpg"
                 alt="image"
@@ -77,7 +77,7 @@ const HomePage = () => {
                 priority
               />
             </div>
-            <div className="w-full h-auto aspect-[1644/649] relative">
+            <div className="w-full h-auto aspect-[1908/600] relative">
               <Image
                 src="/home4.jpg"
                 alt="image"
@@ -86,7 +86,7 @@ const HomePage = () => {
                 priority
               />
             </div>
-          </section> */}
+          </section>
         </Wrapper>
       </div>
     </>

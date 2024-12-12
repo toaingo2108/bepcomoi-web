@@ -9,7 +9,7 @@ import ClientOnly from "../client-only";
 
 const Footer = () => {
   return (
-    <footer className="h-fit border-t-4 border-primary/60 relative bg-gradient-to-b from-lime-50 to-lime-100">
+    <footer className="h-fit border-t-4 border-primary/60 relative bg-gradient-to-b from-primary/20 via-primary/10 to-primary/50">
       <Wrapper className="flex flex-col py-16">
         <div className="flex justify-center">
           <div className="relative h-36 w-36">

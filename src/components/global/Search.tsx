@@ -82,25 +82,7 @@ const ContentTab: FunctionComponent<ContentTabProps> = ({ value }) => {
             <SelectValue placeholder="" />
           </SelectTrigger>
           <SelectContent className="shadow-xl max-h-52">
-            {[
-              { label: "Tất cả", value: "all" },
-              { label: "Dụng cụ cho bé ăn dặm", value: "dung-cu-cho-be-an-dam" },
-              { label: "Phương pháp ăn dặm bổ não", value: "phuong-phap-an-dam-bo-nao" },
-              { label: "Tài nguyên cho cha mẹ", value: "tai-nguyen-cho-cha-me" },
-              { label: "Thực đơn ăn dặm bổ não", value: "thuc-don-an-dam-bo-nao" },
-              { label: "Các món mì ý bổ não", value: "cac-mon-mi-y-bo-nao" },
-              { label: "Các món với dầu ăn bổ não", value: "cac-mon-voi-dau-an-bo-nao" },
-              { label: "Các món với hạt bổ não", value: "cac-mon-voi-hat-bo-nao" },
-              {
-                label: "Thực đơn cho bé 12 đến 24 tháng",
-                value: "thuc-don-cho-be-12-den-24-thang",
-              },
-              { label: "Tin tức", value: "tin-tuc" },
-              {
-                label: "Vì sao 1000 ngày đầu đời rất quan trọng?",
-                value: "vi-sao-1000-ngay-dau-doi-rat-quan-trong",
-              },
-            ].map((item) => (
+            {[{ label: "Tất cả", value: "all" }].map((item) => (
               <SelectItem
                 className="focus:bg-primary focus:text-white hover:cursor-pointer"
                 key={item.value}

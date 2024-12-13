@@ -15,25 +15,83 @@ import TrackVisit from "@/components/global/TrackVisit";
 
 const inter = Inter({ subsets: ["latin"] });
 
+const siteConfig = {
+  name: "Bếp Có Mồi",
+  description:
+    "Bếp Có Mồi với những sản phẩm chất lượng cao, được tuyển chọn kĩ lưỡng từ nguồn hải sản đúng chuẩn vị của biển cả",
+};
+
 export const metadata: Metadata = {
+  metadataBase: new URL("https://bepcomoi.com"),
   title: {
-    default: "Bếp có mồi - Tui có mực khô",
-    template: "%s | Bepcomoi",
+    default: siteConfig.name,
+    template: `%s | ${siteConfig.name}`,
   },
-  description: "Bếp có mồi - Tui có mực khô",
-  icons: [
+  description: siteConfig.description,
+  authors: [
     {
-      href: "/logo.png",
-      url: "/logo.png",
-      sizes: "32x32",
+      name: "Bếp Có Mồi",
+      url: "https://bepcomoi.com",
     },
   ],
+  icons: [
+    {
+      url: "/logo.png",
+      sizes: "32x32",
+      type: "image/png",
+    },
+  ],
+  twitter: {
+    card: "summary_large_image",
+    creator: "@bepcomoi",
+    images: "/home1.jpg",
+  },
+  robots: "index, follow",
+  applicationName: "bepcomoi",
+  keywords: [
+    "Bếp Có Mồi",
+    "khô mực",
+    "mực khô",
+    "Bình Định",
+    "Hoài Hải",
+    "Hoài nhơn",
+    "Đặc sản Bình Định",
+    "Hải sản Bình Định",
+    "Hải sản tươi sống",
+    "mực một nắng",
+    "mực một nắng khô",
+    "mực một nắng tươi",
+    "mực một nắng tươi sống",
+    "mực hai nắng",
+    "mực hai nắng khô",
+    "mực hai nắng tươi",
+    "mực hai nắng tươi sống",
+    "nước mắm",
+    "nước sốt",
+  ],
+  openGraph: {
+    type: "website",
+    url: "https://bepcomoi.com",
+    title: "Bếp Có Mồi",
+    siteName: "Bếp Có Mồi",
+    images: [
+      {
+        alt: "Bếp Có Mồi",
+        type: "image/png",
+        url: "/logo.png",
+      },
+    ],
+    locale: "vi_VN",
+    description:
+      "Bếp Có Mồi với những sản phẩm chất lượng cao, được tuyển chọn kĩ lưỡng từ nguồn hải sản đúng chuẩn vị của biển cả",
+  },
 };
 
 export const viewports: Viewport = {
   userScalable: false,
   initialScale: 1,
   maximumScale: 1,
+  width: "device-width",
 };
 
 export default async function RootLayout({

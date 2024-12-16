@@ -27,7 +27,7 @@ const ProductDetailPage = async ({ params }: ProductDetailPageProps) => {
     <>
       <BreadcrumbContainer
         data={[
-          { href: "/", label: "Home" },
+          { href: "/", label: "Trang chủ" },
           { href: "/cua-hang", label: "Sản phẩm" },
           { label: product.name },
         ]}

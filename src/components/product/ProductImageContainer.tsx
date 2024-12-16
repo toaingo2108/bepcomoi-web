@@ -66,7 +66,7 @@ const ProductImageContainer = ({ product }: Props) => {
                   src={buildImageUrl(image)}
                   alt="product image"
                   fill
-                  className={cn("object-contain w-full h-full")}
+                  className={cn("object-cover w-full h-full")}
                   priority={true}
                 />
               </CarouselItem>

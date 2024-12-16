@@ -22,7 +22,7 @@ const StorePage = async ({ searchParams }: StorePageProps) => {
     <>
       <BreadcrumbContainer
         data={[
-          { label: "Home", href: "/" },
+          { label: "Trang chủ", href: "/" },
           { label: "Sản phẩm", href: searchParams.c ? "/cua-hang" : undefined },
           {
             label: searchParams.c
@@ -46,13 +46,13 @@ const StorePage = async ({ searchParams }: StorePageProps) => {
             <CategoriesFilter categories={categories || []} />
           </div>
           <div className="flex-1 flex flex-col gap-4">
-            <div className="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4">
+            <div className="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-2 sm:gap-x-4 gap-x-2 gap-y-8">
               {products?.map((product) => (
                 <ProductItem key={product.id} product={product} />
               ))}
             </div>
 
-            <div className="col-span-3">
+            <div className="col-span-3 mt-6">
               <Categories categories={categories || []} />
             </div>
           </div>

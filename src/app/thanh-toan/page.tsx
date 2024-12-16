@@ -86,7 +86,7 @@ const PayPage = () => {
 
   return (
     <>
-      <BreadcrumbContainer data={[{ label: "Home", href: "/" }, { label: "Thanh toán" }]} />
+      <BreadcrumbContainer data={[{ label: "Trang chủ", href: "/" }, { label: "Thanh toán" }]} />
       <div className="bg-neutral-100 py-16">
         <Wrapper>
           <Form {...form}>
@@ -305,7 +305,9 @@ const PayPage = () => {
                                               clipPath: "polygon(50% 0%, 0% 100%, 100% 100%)",
                                             }}
                                           ></div>
-                                          <p>TEST MOMO</p>
+                                          <p>(Chưa hỗ trợ vui lòng chọn phương thức khác)</p>
+                                          <p>hoặc</p>
+                                          <p>0386857571 - Ngô Thị Như Ý</p>
                                         </div>
                                       )}
                                     </div>
@@ -335,7 +337,10 @@ const PayPage = () => {
                                               clipPath: "polygon(50% 0%, 0% 100%, 100% 100%)",
                                             }}
                                           ></div>
-                                          <p>Trả tiền mặt khi nhận hàng</p>
+                                          <p>
+                                            Quý khách có thể thanh toán sau khi nhận và kiểm tra
+                                            hàng.
+                                          </p>
                                         </div>
                                       )}
                                     </div>

@@ -14,7 +14,7 @@ interface StorePageProps {
 }
 const StorePage = async ({ searchParams }: StorePageProps) => {
   const [products, categories] = await Promise.all([
-    getListProducts(searchParams.c),
+    getListProducts({ categorySlug: searchParams.c }),
     getListCategories(),
   ]);
 

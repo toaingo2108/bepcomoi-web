@@ -1,6 +1,6 @@
 "use client";
 
-import React, { FunctionComponent, useState } from "react";
+import React, { FunctionComponent, useEffect, useState } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "../ui/dialog";
 import { SearchIcon } from "lucide-react";
 import { Button } from "../ui/button";
@@ -12,6 +12,12 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
+import { useDebounceCallback, useDebounceValue } from "usehooks-ts";
+import { getListProducts } from "@/lib/api";
+import { Product } from "@/types/product";
+import { ScrollArea } from "../ui/scroll-area";
+import Image from "next/image";
+import { buildImageUrl } from "@/lib/utils";
 
 const Search = () => {
   const [open, setOpen] = useState(false);
@@ -34,18 +40,12 @@ const Search = () => {
           </DialogTitle>
         </DialogHeader>
         <Tabs>
-          <TabsList defaultValue="news" className="bg-transparent gap-1">
+          <TabsList defaultValue="product" className="bg-transparent gap-1">
             <TabsTrigger
-              value="news"
+              value="product"
               className="data-[state=active]:bg-primary data-[state=active]:text-white px-4 py-3 border rounded-t-lg rounded-b-none"
             >
-              Tin tức
-            </TabsTrigger>
-            <TabsTrigger
-              value="food"
-              className="data-[state=active]:bg-primary data-[state=active]:text-white px-4 py-3 border rounded-t-lg rounded-b-none"
-            >
-              Món ăn
+              Sản phẩm
             </TabsTrigger>
             <TabsTrigger
               value="order"
@@ -54,9 +54,12 @@ const Search = () => {
               Đơn hàng
             </TabsTrigger>
           </TabsList>
-          <ContentTab value="news" />
-          <ContentTab value="food" />
-          <SearchOrderTab onAfterSearch={handleClose} />
+          <TabsContent value="product">
+            <SearchFoodTab onClose={handleClose} />
+          </TabsContent>
+          <TabsContent value="order">
+            <SearchOrderTab onClose={handleClose} />
+          </TabsContent>
         </Tabs>
       </DialogContent>
     </Dialog>
@@ -66,16 +69,37 @@ const Search = () => {
 export default Search;
 
 interface ContentTabProps {
-  value: "news" | "food" | "order";
+  onClose: () => void;
 }
 
-const ContentTab: FunctionComponent<ContentTabProps> = ({ value }) => {
+const SearchFoodTab = ({ onClose }: ContentTabProps) => {
+  const router = useRouter();
+
+  const [searchResult, setSearchResult] = useState<Product[]>([]);
+  const [searchKey, setSearchKey] = useDebounceValue("", 500);
+
+  const handleSearch = async (value: string) => {
+    const products = await getListProducts({ search: value });
+    if (products) {
+      setSearchResult(products);
+    }
+  };
+
+  useEffect(() => {
+    if (searchKey) {
+      handleSearch(searchKey);
+    } else {
+      setSearchResult([]);
+    }
+  }, [searchKey]);
+
   return (
-    <TabsContent value={value} className="min-h-[40vh] mt-1">
+    <div className="min-h-[40vh] mt-1 flex flex-col">
       <div className="flex gap-2">
         <Input
           className="flex-1 rounded-none"
-          placeholder={value === "news" ? "Tìm kiếm bài viết..." : "Tìm kiếm món ăn..."}
+          onChange={(e) => setSearchKey(e.target.value)}
+          placeholder="Tìm kiếm sản phẩm"
         />
         <Select defaultValue="all">
           <SelectTrigger className="w-[180px] rounded-none">
@@ -97,14 +121,46 @@ const ContentTab: FunctionComponent<ContentTabProps> = ({ value }) => {
           <SearchIcon className="text-white w-3.5 h-3.5" strokeWidth={4} />
         </Button>
       </div>
-    </TabsContent>
+      <ScrollArea className="h-72 w-full pr-4 mt-4">
+        {searchResult.map((product) => (
+          <div
+            key={product.slug}
+            role="button"
+            onClick={() => {
+              router.push("/san-pham/" + product.slug);
+              onClose();
+            }}
+            className="flex justify-between items-center space-x-2 hover:bg-neutral-50 py-1"
+          >
+            <div className="flex flex-1 items-center space-x-2">
+              <div className="relative w-16 h-16 shrink-0">
+                <Image
+                  src={buildImageUrl(product.images[0])}
+                  alt="product-image"
+                  width={80}
+                  height={80}
+                  className="object-contain w-full h-full"
+                  priority
+                  quality={60}
+                />
+              </div>
+              <div className="text-sm">
+                <p className="font-bold text-primary-foreground max-w-lg overflow-hidden whitespace-nowrap text-ellipsis">
+                  {product.name}
+                </p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </ScrollArea>
+    </div>
   );
 };
 
 interface SearchOrderTabProps {
-  onAfterSearch: () => void;
+  onClose: () => void;
 }
-const SearchOrderTab = ({ onAfterSearch }: SearchOrderTabProps) => {
+const SearchOrderTab = ({ onClose }: SearchOrderTabProps) => {
   const router = useRouter();
   const formSchema = z.object({
     orderCode: z.string().min(1),
@@ -119,12 +175,12 @@ const SearchOrderTab = ({ onAfterSearch }: SearchOrderTabProps) => {
     const { orderCode } = values;
     if (orderCode) {
       router.push(`/order/${orderCode}`);
-      onAfterSearch();
+      onClose();
     }
   };
 
   return (
-    <TabsContent value="order" className="min-h-[40vh] mt-1">
+    <div className="min-h-[40vh] mt-1">
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)}>
           <div className="flex gap-2">
@@ -149,6 +205,6 @@ const SearchOrderTab = ({ onAfterSearch }: SearchOrderTabProps) => {
           </div>
         </form>
       </Form>
-    </TabsContent>
+    </div>
   );
 };

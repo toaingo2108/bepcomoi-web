@@ -23,13 +23,16 @@ export const getDetailCategory = async (slug: string) => {
 
 // ======================== PRODUCT ===========================
 
-export const getListProducts = async (categorySlug?: string) => {
-  const response = await fetcher<Product[]>(
-    `/products/list${categorySlug ? `?categorySlug=${categorySlug}` : ""}`,
-    {
-      cache: "no-cache",
-    }
-  );
+export const getListProducts = async (params: { categorySlug?: string; search?: string }) => {
+  const query = new URLSearchParams();
+  if (params.categorySlug) {
+    query.set("categorySlug", params.categorySlug || "");
+  }
+  query.set("search", params.search || "");
+  const response = await fetcher<Product[]>(`/products/list?${query.toString()}`, {
+    cache: "no-cache",
+    method: "GET",
+  });
   return response.results;
 };
 

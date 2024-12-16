@@ -32,15 +32,6 @@ const StorePage = async ({ searchParams }: StorePageProps) => {
         ]}
       />
       <Wrapper className="py-10">
-        <div className="w-full flex justify-center">
-          <div className="relative w-1/3 aspect-video">
-            <Image src="/logo.png" alt="" className="object-contain" fill priority />
-          </div>
-        </div>
-        <p className="font-bold text-lg text-center lg:px-56 px-4 my-6">
-          Ở Bếp Có Mồi, chúng tôi có những sản phẩm chất lượng cao, được tuyển chọn kĩ lưỡng từ
-          nguồn hải sản đúng chuẩn vị của biển cả
-        </p>
         <div className="flex gap-10">
           <div className="hidden xl:block">
             <CategoriesFilter categories={categories || []} />
@@ -51,7 +42,15 @@ const StorePage = async ({ searchParams }: StorePageProps) => {
                 <ProductItem key={product.id} product={product} />
               ))}
             </div>
-
+            <div className="w-full flex justify-center pt-10">
+              <div className="relative w-1/3 aspect-video">
+                <Image src="/logo.png" alt="" className="object-contain" fill priority />
+              </div>
+            </div>
+            <p className="font-bold text-lg text-center lg:px-56 px-4 my-6">
+              Ở Bếp Có Mồi, chúng tôi có những sản phẩm chất lượng cao, được tuyển chọn kĩ lưỡng từ
+              nguồn hải sản đúng chuẩn vị của biển cả
+            </p>
             <div className="col-span-3 mt-6">
               <Categories categories={categories || []} />
             </div>

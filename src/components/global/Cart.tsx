@@ -1,13 +1,13 @@
 "use client";
 
 import React, { useMemo } from "react";
-import { HoverCard, HoverCardContent, HoverCardTrigger } from "../ui/hover-card";
 import { Button, buttonVariants } from "../ui/button";
 import { ShoppingBagIcon, XIcon } from "lucide-react";
 import Link from "next/link";
 import { buildImageUrl, cn, formatPrice } from "@/lib/utils";
 import Image from "next/image";
 import useCart from "@/hooks/use-cart";
+import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
 
 const Cart = () => {
   const { items, removeFromCart } = useCart();
@@ -19,8 +19,8 @@ const Cart = () => {
   }, [items]);
 
   return (
-    <HoverCard closeDelay={0} openDelay={0}>
-      <HoverCardTrigger asChild>
+    <Popover>
+      <PopoverTrigger asChild>
         <Button size="icon" variant="ghost" className="group hover:bg-transparent relative flex">
           <ShoppingBagIcon
             className="text-primary h-8 w-8 group-hover:fill-primary"
@@ -30,8 +30,8 @@ const Cart = () => {
             {items.length}
           </span>
         </Button>
-      </HoverCardTrigger>
-      <HoverCardContent className="w-72 p-0 overflow-hidden" sideOffset={0} align="end">
+      </PopoverTrigger>
+      <PopoverContent className="w-72 p-0 overflow-hidden" sideOffset={0} align="end">
         <div className="h-60 overflow-y-auto">
           <div className="px-2">
             {items.length === 0 && (
@@ -103,8 +103,8 @@ const Cart = () => {
             Thanh toán
           </Link>
         </div>
-      </HoverCardContent>
-    </HoverCard>
+      </PopoverContent>
+    </Popover>
   );
 };
 

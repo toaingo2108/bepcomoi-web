@@ -7,6 +7,8 @@ import NextTopLoader from "nextjs-toploader";
 import ScrollToTop from "@/components/scroll-to-top";
 // css
 import "yet-another-react-lightbox/styles.css";
+import "yet-another-react-lightbox/plugins/thumbnails.css";
+import "yet-another-react-lightbox/plugins/counter.css";
 import "./globals.css";
 import { getListCategories } from "@/lib/api";
 import SpeedDialComponent from "@/components/speed-dial";

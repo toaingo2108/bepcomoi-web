@@ -9,6 +9,10 @@ import { Button } from "../ui/button";
 import { SearchIcon } from "lucide-react";
 import Lightbox from "yet-another-react-lightbox";
 import ImageLightBox from "../image-light-box";
+import Fullscreen from "yet-another-react-lightbox/plugins/fullscreen";
+import Zoom from "yet-another-react-lightbox/plugins/zoom";
+import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails";
+import Counter from "yet-another-react-lightbox/plugins/counter";
 
 interface Props {
   product: Product;
@@ -17,10 +21,6 @@ const ProductImageContainer = ({ product }: Props) => {
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
   const ref = useRef<HTMLDivElement | null>(null);
-  const [transform, setTransform] = useState<{
-    pageX: number;
-    pageY: number;
-  } | null>(null);
   const [openLightBox, setOpenLightBox] = useState(false);
 
   useEffect(() => {
@@ -41,27 +41,7 @@ const ProductImageContainer = ({ product }: Props) => {
         <Carousel setApi={setApi} ref={ref}>
           <CarouselContent className="aspect-square w-full -ml-0">
             {product.images.map((image) => (
-              <CarouselItem
-                key={image}
-                className="relative hover:scale-[3] transition-transform"
-                style={{
-                  transformOrigin: transform
-                    ? `${
-                        ((transform.pageX - ref.current?.offsetLeft!) / ref.current?.clientWidth!) *
-                        100
-                      }% ${
-                        ((transform.pageY - ref.current?.offsetTop!) / ref.current?.clientHeight!) *
-                        100
-                      }%`
-                    : "center",
-                }}
-                onMouseMove={(e) => {
-                  setTransform({ pageX: e.pageX, pageY: e.pageY });
-                }}
-                onMouseOut={() => {
-                  setTransform(null);
-                }}
-              >
+              <CarouselItem key={image} className="relative transition-transform">
                 <Image
                   src={buildImageUrl(image)}
                   alt="product image"
@@ -108,11 +88,12 @@ const ProductImageContainer = ({ product }: Props) => {
         </div>
       </div>
       <Lightbox
+        plugins={[Fullscreen, Zoom, Thumbnails, Counter]}
         open={openLightBox}
         close={() => setOpenLightBox(false)}
         slides={product.images.map((image) => ({
           src: buildImageUrl(image),
-          width: 1920,
+          width: 1080,
           height: 1080,
           alt: "product image",
           imageFit: "contain",
@@ -120,6 +101,7 @@ const ProductImageContainer = ({ product }: Props) => {
         }))}
         index={current}
         render={{ slide: ImageLightBox }}
+        counter={{ container: { style: { top: "unset", bottom: 0 } } }}
       />
     </>
   );

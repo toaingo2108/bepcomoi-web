@@ -95,7 +95,7 @@ const CategoriesFilter = ({ categories }: CategoriesFilterProps) => {
       <div className="flex flex-col space-y-3 mt-8">
         <Link href="/cua-hang" className="flex justify-between">
           <span className="text-primary font-bold flex-1 whitespace-nowrap overflow-hidden overflow-ellipsis mr-4">
-            Tất cẩ sản phẩm
+            Tất cả sản phẩm
           </span>
           <span className="w-fit text-muted-foreground font-light shrink-0">({totalCount})</span>
         </Link>

@@ -71,7 +71,7 @@ const ProductItem = ({ product }: ProductItemProps) => {
                 {formatPrice(product.price)}
               </span>
             )}
-            <span className="text-primary font-bold sm:text-xl text-xs">
+            <span className="text-rose-600 font-bold sm:text-xl text-xs">
               {formatPrice(product.salePrice)}
             </span>
           </div>

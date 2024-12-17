@@ -45,7 +45,7 @@ const ProductDetailPage = async ({ params }: ProductDetailPageProps) => {
                   {formatPrice(product.price)}
                 </span>
               )}
-              <span className="text-primary font-bold text-2xl">
+              <span className="text-rose-600 font-bold text-2xl">
                 {formatPrice(product.salePrice)}
               </span>
             </div>

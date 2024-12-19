@@ -15,9 +15,13 @@ interface ProductQuestionsProps {
 const ProductQuestions = ({ product }: ProductQuestionsProps) => {
   return (
     <div>
-      <Accordion type="multiple" className="w-full">
+      <Accordion
+        type="multiple"
+        className="w-full"
+        defaultValue={product?.questions?.map((q) => q.id)}
+      >
         {product?.questions?.map((question) => (
-          <AccordionItem key={question.id} value={question.title}>
+          <AccordionItem key={question.id} value={question.id}>
             <AccordionTrigger className="font-bold text-primary-foreground">
               <div className="flex items-center">
                 <DotIcon className="w-4 h-4 mr-1.5 shrink-0" strokeWidth={8} />

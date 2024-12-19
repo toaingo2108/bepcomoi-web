@@ -11,9 +11,8 @@ interface CategoriesProps {
 const Categories = ({ categories }: CategoriesProps) => {
   return (
     <div className="flex flex-col gap-6">
-      <h2 className="font-bold text-2xl text-center">Danh mục sản phẩm Bếp Có Mồi</h2>
-
-      <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-2 gap-4">
+      <h2 className="font-bold text-2xl text-center">Danh mục Bếp Có Mồi</h2>
+      <div className="grid lg:grid-cols-8 md:grid-cols-4 grid-cols-4 lg:gap-4 gap-2 align-middle">
         {categories.map((category) => (
           <CategoryItem key={category.slug} category={category} />
         ))}
@@ -36,7 +35,7 @@ const CategoryItem = ({ category }: { category: Category }) => {
           priority
         />
       </div>
-      <p className="font-bold text-primary">{category.name}</p>
+      <p className="font-bold text-primary sm:text-xs text-[8px]">{category.name}</p>
     </Link>
   );
 };

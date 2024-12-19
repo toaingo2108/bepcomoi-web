@@ -7,9 +7,6 @@ import React from "react";
 import CategoriesFilter from "@/components/global/CategoriesFilter";
 import Categories from "@/components/global/Categories";
 import sortBy from "lodash/sortBy";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-import { Button } from "@/components/ui/button";
-import { FilterIcon } from "lucide-react";
 import CategoriesFilterMobile from "@/components/global/CategoriesFilterMobile";
 
 interface StorePageProps {

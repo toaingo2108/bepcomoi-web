@@ -31,7 +31,7 @@ const ProductItem = ({ product }: ProductItemProps) => {
   };
 
   return (
-    <div className="w-full h-auto flex flex-col p-0 relative max-sm:border rounded-lg shadow-md">
+    <div className="w-full h-auto flex flex-col p-0 relative max-sm:border rounded-lg shadow-md lg:hover:shadow-xl transition-all">
       <Link
         href={`/san-pham/${product.slug}`}
         className="w-full aspect-square h-auto block relative rounded-lg"

@@ -4,6 +4,7 @@ import { Category } from "@/types/category";
 import { ChevronRightIcon } from "lucide-react";
 import Link from "next/link";
 import React, { useMemo } from "react";
+import { PopoverTrigger } from "../ui/popover";
 
 // const filterData = [
 //   {
@@ -82,9 +83,10 @@ import React, { useMemo } from "react";
 
 interface CategoriesFilterProps {
   categories: Category[];
+  onItemClick?: (category?: Category) => void;
 }
 
-const CategoriesFilter = ({ categories }: CategoriesFilterProps) => {
+const CategoriesFilter = ({ categories, onItemClick }: CategoriesFilterProps) => {
   const totalCount = useMemo(() => {
     return categories.reduce((acc, item) => acc + item.products.length, 0);
   }, [categories]);
@@ -92,8 +94,8 @@ const CategoriesFilter = ({ categories }: CategoriesFilterProps) => {
   return (
     <div className="w-[228px]">
       <h3 className="text-2xl font-bold text-neutral-600">Lọc theo</h3>
-      <div className="flex flex-col space-y-3 mt-8">
-        <Link href="/cua-hang" className="flex justify-between">
+      <div className="flex flex-col space-y-3 mt-8 text-sm">
+        <Link href="/cua-hang" className="flex justify-between" onClick={() => onItemClick?.()}>
           <span className="text-primary font-bold flex-1 whitespace-nowrap overflow-hidden overflow-ellipsis mr-4">
             Tất cả sản phẩm
           </span>
@@ -101,7 +103,11 @@ const CategoriesFilter = ({ categories }: CategoriesFilterProps) => {
         </Link>
         {categories.map((item) => (
           <React.Fragment key={item.slug}>
-            <Link href={`/cua-hang?c=${item.slug}`} className="flex justify-between">
+            <Link
+              href={`/cua-hang?c=${item.slug}`}
+              className="flex justify-between"
+              onClick={() => onItemClick?.(item)}
+            >
               <span className="text-primary font-bold flex-1 whitespace-nowrap overflow-hidden overflow-ellipsis mr-4">
                 {item.name}
               </span>

@@ -6,6 +6,11 @@ import Image from "next/image";
 import React from "react";
 import CategoriesFilter from "@/components/global/CategoriesFilter";
 import Categories from "@/components/global/Categories";
+import sortBy from "lodash/sortBy";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { Button } from "@/components/ui/button";
+import { FilterIcon } from "lucide-react";
+import CategoriesFilterMobile from "@/components/global/CategoriesFilterMobile";
 
 interface StorePageProps {
   searchParams: {
@@ -32,13 +37,14 @@ const StorePage = async ({ searchParams }: StorePageProps) => {
         ]}
       />
       <Wrapper className="py-10">
+        <CategoriesFilterMobile categories={categories || []} />
         <div className="flex gap-10">
           <div className="hidden xl:block">
             <CategoriesFilter categories={categories || []} />
           </div>
           <div className="flex-1 flex flex-col gap-4">
             <div className="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-2 sm:gap-x-4 gap-x-2 gap-y-8">
-              {products?.map((product) => (
+              {sortBy(products, "name")?.map((product) => (
                 <ProductItem key={product.id} product={product} />
               ))}
             </div>

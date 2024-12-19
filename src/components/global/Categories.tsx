@@ -28,7 +28,13 @@ const CategoryItem = ({ category }: { category: Category }) => {
   return (
     <Link href={`/cua-hang?c=${category.slug}`} className="group flex flex-col gap-2">
       <div className="w-full h-auto aspect-square relative border-[3px] border-dashed rounded-lg border-primary group-hover:border-black transition-colors">
-        <Image src={buildImageUrl(category.image)} alt="category" fill className="object-cover" priority />
+        <Image
+          src={buildImageUrl(category.image)}
+          alt="category"
+          fill
+          className="object-cover"
+          priority
+        />
       </div>
       <p className="font-bold text-primary">{category.name}</p>
     </Link>

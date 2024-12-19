@@ -31,7 +31,7 @@ const ProductItem = ({ product }: ProductItemProps) => {
   };
 
   return (
-    <div className="w-full aspect-[5/7] h-auto flex flex-col p-0 relative max-sm:border rounded-lg shadow-md">
+    <div className="w-full h-auto flex flex-col p-0 relative max-sm:border rounded-lg shadow-md">
       <Link
         href={`/san-pham/${product.slug}`}
         className="w-full aspect-square h-auto block relative rounded-lg"
@@ -55,11 +55,12 @@ const ProductItem = ({ product }: ProductItemProps) => {
           />
         </div>
       )}
-      <div className="flex-1 flex flex-col justify-between gap-2 p-4">
+      <div className="flex-1 flex flex-col justify-between gap-2 sm:p-4 p-2">
         <Hint description={product.name} side="top">
           <Link
             href={`/san-pham/${product.slug}`}
-            className="font-bold whitespace-nowrap overflow-hidden text-ellipsis"
+            className="font-bold overflow-hidden text-ellipsis sm:text-base text-[10px]"
+            style={{ display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical" }}
           >
             {product.name}
           </Link>

@@ -95,7 +95,7 @@ body {
 }
 
 ::selection {
-  color: "#000";
+  color: #000;
   background: hsl(var(--primary));
 }
 

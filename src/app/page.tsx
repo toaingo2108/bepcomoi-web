@@ -9,8 +9,8 @@ const HomePage = () => {
       <div>
         <Banner />
         <Wrapper className="">
-          <div className="relative w-full aspect-[1908/600]">
-            <Image src="/home1.jpg" alt="home" fill className="object-cover" priority />
+          <div className="relative w-full aspect-[1080/540]">
+            <Image src="/home5.png" alt="home" fill className="object-cover" priority />
           </div>
           {/* <section>
           <Wrapper className="py-10">
@@ -61,7 +61,7 @@ const HomePage = () => {
           <section>
             <div className="relative w-full h-auto aspect-[1908/600]">
               <Image
-                src="/home2.jpg"
+                src="/home1.jpg"
                 alt="image"
                 fill
                 className="select-none pointer-events-none object-cover"

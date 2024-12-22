@@ -8,7 +8,7 @@ const HomePage = () => {
     <>
       <div>
         <Banner />
-        <Wrapper className="">
+        <Wrapper className="!p-0">
           <div className="relative w-full aspect-[1080/540]">
             <Image src="/home5.png" alt="home" fill className="object-cover" priority />
           </div>

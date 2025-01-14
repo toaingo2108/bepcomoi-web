@@ -7,7 +7,8 @@ import { Order } from "@/types/order";
 export const createOrder = async <T>(
   values: T,
   items: { product: Product; quantity: number }[],
-  totalPrice: number
+  totalPrice: number,
+  voucherCode?: string
 ) => {
   const response = await fetcher<Order & { paymentUrl: string | null }>("/orders/create", {
     method: "POST",
@@ -21,6 +22,7 @@ export const createOrder = async <T>(
         quantity,
       })),
       totalPrice,
+      voucherCode,
     }),
     cache: "no-cache",
   });

@@ -1,7 +1,7 @@
 "use client";
 
 import Wrapper from "@/components/global/Wrapper";
-import React, { useMemo, useTransition } from "react";
+import React, { useMemo, useRef, useState, useTransition } from "react";
 import {
   Accordion,
   AccordionContent,
@@ -10,30 +10,21 @@ import {
 } from "@/components/ui/accordion";
 import { TicketPercent } from "lucide-react";
 import { Input } from "@/components/ui/input";
-import { Button, buttonVariants } from "@/components/ui/button";
+import { Button } from "@/components/ui/button";
 import {
   Table,
   TableBody,
-  TableCaption,
   TableCell,
   TableHead,
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { cn, formatPrice, sleep } from "@/lib/utils";
+import { cn, formatPrice } from "@/lib/utils";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
-import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
+import { Form, FormControl, FormField, FormItem, FormLabel } from "@/components/ui/form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Textarea } from "@/components/ui/textarea";
@@ -41,8 +32,9 @@ import BreadcrumbContainer from "@/components/global/BreadcrumbContainer";
 import { useRouter } from "next/navigation";
 import useCart from "@/hooks/use-cart";
 import { createOrder } from "./actions";
-import Iconify from "@/components/iconify";
 import Image from "next/image";
+import { verifyVoucher } from "@/lib/api";
+import { Voucher } from "@/types/voucher";
 
 const formSchema = z.object({
   receiver: z.string().min(1),
@@ -74,11 +66,28 @@ const PayPage = () => {
     },
   });
 
+  const codeVoucherRef = useRef<HTMLInputElement>(null);
+
+  const [voucher, setVoucher] = useState<Voucher | string | null>(null);
   const [isPending, startTransition] = useTransition();
 
+  const handleVerifyVoucher = async () => {
+    const code = codeVoucherRef.current?.value || "";
+    const voucherVerified = await verifyVoucher(code, totalPrice);
+
+    if (!voucherVerified) {
+      setVoucher(""); // error
+    } else {
+      setVoucher(voucherVerified); // success
+    }
+
+    console.log(voucherVerified);
+  };
+
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
+    const voucherCode = voucher ? (voucher as Voucher).code : undefined;
     startTransition(async () => {
-      const order = await createOrder(values, items, totalPrice);
+      const order = await createOrder(values, items, totalPrice, voucherCode);
       clearCart();
       router.push(order?.paymentUrl ?? `/order/${order?.code}`);
     });
@@ -106,16 +115,35 @@ const PayPage = () => {
                       </AccordionTrigger>
                     </div>
                     <AccordionContent className="grid lg:grid-cols-2 grid-cols-1 py-8">
-                      <div className="flex flex-col space-y-6">
+                      <div className="flex flex-col space-y-1">
                         <p className="text-muted-foreground">
                           Nếu bạn có mã giảm giá, vui lòng điền vào phía bên dưới.
                         </p>
-                        <div className="flex space-x-4">
-                          <Input className="rounded-none flex-1" placeholder="Mã ưu đãi" />
-                          <Button type="button" className="rounded-full px-10">
+                        <div className="flex space-x-4 pt-4">
+                          <Input
+                            className="rounded-none flex-1"
+                            placeholder="Mã ưu đãi"
+                            ref={codeVoucherRef}
+                          />
+                          <Button
+                            type="button"
+                            className="rounded-full px-10"
+                            onClick={handleVerifyVoucher}
+                          >
                             Áp Dụng
                           </Button>
                         </div>
+                        {voucher === "" && (
+                          <p className="text-rose-600">Mã giảm giá không hợp lệ hoặc đã hết hạn.</p>
+                        )}
+                        {voucher && (
+                          <p>
+                            Mã giảm giá hợp lệ:{" "}
+                            <span className="font-bold text-primary">
+                              {typeof voucher === "string" ? voucher : voucher.code}
+                            </span>
+                          </p>
+                        )}
                       </div>
                     </AccordionContent>
                   </AccordionItem>
@@ -253,10 +281,20 @@ const PayPage = () => {
                           </TableRow>
                           <TableRow>
                             <TableCell className="pl-0 font-bold text-muted-foreground">
+                              Giảm giá
+                            </TableCell>
+                            <TableCell className="pl-0 font-bold text-muted-foreground text-right">
+                              {formatPrice(voucher ? (voucher as Voucher).discount : 0)}
+                            </TableCell>
+                          </TableRow>
+                          <TableRow>
+                            <TableCell className="pl-0 font-bold text-muted-foreground">
                               Tổng
                             </TableCell>
                             <TableCell className="pl-0 font-bold text-muted-foreground text-right">
-                              {formatPrice(totalPrice)}
+                              {formatPrice(
+                                totalPrice - (voucher ? (voucher as Voucher).discount : 0)
+                              )}
                             </TableCell>
                           </TableRow>
                         </TableBody>

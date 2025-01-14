@@ -4,6 +4,7 @@ import { Order } from "@/types/order";
 import { Product } from "../types/product";
 import { fetcher } from "./fetcher";
 import { Category } from "@/types/category";
+import { Voucher } from "@/types/voucher";
 
 // ======================== CATEGORY ===========================
 
@@ -57,6 +58,19 @@ export const trackVisit = async () => {
   const response = await fetcher<Order>(`/analytic/track-visit`, {
     cache: "no-cache",
     method: "POST",
+  });
+  return response.results;
+};
+
+// ======================== VOUCHER ===========================
+export const verifyVoucher = async (code: string, orderValue: number) => {
+  const response = await fetcher<Voucher>(`/vouchers/verify`, {
+    cache: "no-cache",
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ code, orderValue }),
   });
   return response.results;
 };

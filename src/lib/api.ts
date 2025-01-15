@@ -74,3 +74,17 @@ export const verifyVoucher = async (code: string, orderValue: number) => {
   });
   return response.results;
 };
+
+// ======================== HELP ===========================
+export const sendHelp = async (values: { name: string; email: string; content: string }) => {
+  const response = await fetcher(`/help/send`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(values),
+    cache: "no-cache",
+  });
+  console.log(response);
+  return response.results;
+};

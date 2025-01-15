@@ -19,7 +19,7 @@ import React, { useTransition } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
-export const FormSchema = z.object({
+const FormSchema = z.object({
   name: z.string().min(1, "Họ và tên không được để trống"),
   email: z.string().email("Email không hợp lệ"),
   content: z.string().min(1, "Nội dung không được để trống"),

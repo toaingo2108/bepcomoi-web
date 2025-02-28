@@ -49,15 +49,15 @@ const Footer = () => {
             <h3 className="font-bold">Liên kết</h3>
             <div className="flex flex-col gap-2 mt-4">
               <FooterLink>Về bepcomoi.com</FooterLink>
-              <FooterLink>Bài viết</FooterLink>
-              <FooterLink>Help</FooterLink>
+              <FooterLink href="/blogs">Bài viết</FooterLink>
+              <FooterLink href="/help">Help</FooterLink>
             </div>
           </div>
           <div>
             <h3 className="font-bold">Chính sách dịch vụ</h3>
             <div className="flex flex-col gap-2 mt-4">
               <FooterLink>Hình thức thanh toán</FooterLink>
-              <FooterLink>Chính sách bảo mật</FooterLink>
+              <FooterLink href="/policy/privacy">Chính sách bảo mật</FooterLink>
               <FooterLink>Chính sách đổi trả</FooterLink>
               <FooterLink>Chính sách giao hàng</FooterLink>
               <FooterLink>Chính sách kiếm hàng</FooterLink>
